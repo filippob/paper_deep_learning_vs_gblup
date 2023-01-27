@@ -237,8 +237,6 @@ for (i in 1:length(QTN_additive_mean)){
   }
   colnames(pheno_values) = newcolnames
   
-  stop('here')
-  
   #saving, overwriting at each iteration
   write.csv(pheno_values, pheno_file, row.names = FALSE)
 }
