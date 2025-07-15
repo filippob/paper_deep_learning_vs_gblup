@@ -20,7 +20,7 @@ def pearson(x, y):
   #  A = SUM[ (x - x_mean) ^ 2]
   #  B = SUM[ (y - y_mean) ^ 2]
 
-  num = KB.sum( (x - KB.mean(x)) * (y - KB.mean(y)) )
+  num = tf.math.reduce_sum( (x - KB.mean(x)) * (y - KB.mean(y)) )
   den = KB.sqrt(KB.sum((x - KB.mean(x)) ** 2)) * KB.sqrt(KB.sum((y - KB.mean(y)) ** 2))
 
   return(num / den)
