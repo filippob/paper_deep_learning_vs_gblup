@@ -20,14 +20,14 @@ def pearson(x, y):
   #  A = SUM[ (x - x_mean) ^ 2]
   #  B = SUM[ (y - y_mean) ^ 2]
 
-  num = tf.math.reduce_sum( (x - KB.mean(x)) * (y - KB.mean(y)) )
-  den = KB.sqrt(KB.sum((x - KB.mean(x)) ** 2)) * KB.sqrt(KB.sum((y - KB.mean(y)) ** 2))
+  num = tf.math.reduce_sum( (x - tf.math.reduce_mean(x)) * (y - tf.math.reduce_mean(y)) )
+  den = tf.math.sqrt(tf.math.reduce_sum((x - tf.math.reduce_mean(x)) ** 2)) * tf.math.sqrt(tf.math.reduce_sum((y - tf.math.reduce_mean(y)) ** 2))
 
   return(num / den)
 
 #Root Mean Square Error, to ease comparison with GROAN
 def rmse(x, y):
-  return KB.mean(KB.sqrt((x - y) ** 2))
+  return tf.math.reduce_mean(tf.math.sqrt((x - y) ** 2))
 
 ## NDCG: normalised discounted cumulative gain
 ## 1) basic version to work with arrays (numpy))
